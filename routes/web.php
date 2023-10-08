@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
+
+// import my class Controller
+use App\Http\Controllers\ExampleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('example');
-});
+Route::get('/', [ExampleController::class, 'index']);
