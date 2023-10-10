@@ -1,0 +1,35 @@
+/* Color Palette */
+$color1: #DFF6FF;
+$color2: #47B5FF;
+$color3: #1363DF;
+$color4: #06283D;
+
+// background
+.color1 {
+    background-color: $color1;
+}
+.color2 {
+    background-color: $color2;
+}
+.color3 {
+    background-color: $color3;
+}
+.color4 {
+    background-color: $color4;
+}
+
+// font 
+.ft-color1 {
+    color: $color1;
+}
+.ft-color1:hover {
+    color: white;
+}
+
+// button
+.c-btn {
+    @extend .color3, .ft-color1;
+}
+.c-btn:hover {
+    @extend .color2, .ft-color1;
+}

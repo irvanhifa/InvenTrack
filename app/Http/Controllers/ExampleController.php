@@ -8,7 +8,7 @@ class ExampleController extends Controller
 {
     public function index()
     {
-        alert()->info('Title','Lorem Lorem Lorem');
+        // alert()->info('Title','Lorem Lorem Lorem');
         return view('example');
     }
 }
