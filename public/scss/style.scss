@@ -33,3 +33,8 @@ $color4: #06283D;
 .c-btn:hover {
     @extend .color2, .ft-color1;
 }
+
+// badge
+.c-bdg {
+    @extend .color2;
+}

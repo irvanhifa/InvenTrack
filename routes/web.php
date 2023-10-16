@@ -11,4 +11,3 @@ use App\Http\Controllers\ExampleController;
 
 // beranda
 Route::get('/', [BarangController::class, 'index']);
-Route::get('/get', [BarangController::class, 'get_daftar_barang']);

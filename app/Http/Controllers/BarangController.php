@@ -9,11 +9,7 @@ class BarangController extends Controller
 {
     public function index()
     {
-        return view('beranda');
-    }
-
-    public function get_daftar_barang(){
-        $daftar_barang = Barang::paginate(5);
+        $daftar_barang = Barang::paginate(10);
         return view('beranda', ['daftar_barang' => $daftar_barang]);
     }
 
