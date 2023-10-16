@@ -18,13 +18,24 @@
           <a class="navbar-brand ft-color1">InvenTrack</a>
         </div>
         <div class="justify-content-end d-flex">
-          <form class="d-flex" action="#">
-            <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Search">
-            <button class="btn c-btn" type="submit">Cari</button>
+          <form class="d-flex input-group input-group-sm" action="#">
+            <input class="form-control" type="search" placeholder="Cari" aria-label="Search">
+            <button class="btn c-btn btn-sm" type="submit">Cari</button>
           </form>
-          <button class="btn c-btn ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modalLoginAdmin">
-            Admin
-          </button>
+
+          <?php //if (request()->session()->exists('login')) { ?>
+						<button class="btn c-btn btn-sm ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modalTambahBarang">
+							Tambah
+						</button>
+						<button class="btn c-btn btn-sm ms-2" type="button">
+							Rekap
+						</button>
+					<?php //} else { ?>
+						<button class="btn c-btn btn-sm ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modalLoginAdmin">
+							Admin
+						</button>
+					<?php //} ?>
+
         </div>
       </div>
     </nav>
@@ -36,7 +47,7 @@
         {{-- End  Content --}}
     </div>
 
-    {{-- Login Modal --}}
+    {{-- Modal --}}
     <div class="modal fade" id="modalLoginAdmin" tabindex="-1" aria-labelledby="modalLoginAdminLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -60,7 +71,31 @@
         </div>
       </div>
     </div>
-    {{-- End Login Modal --}}
+
+    <div class="modal fade" id="modalTambahBarang" tabindex="-1" aria-labelledby="modalTambahBarang" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Masuk sebagai Admin</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            {{-- form --}}
+            <form action="#"> 
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Masukkan Password">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn c-btn">Masuk</button>
+          </div>
+            </form> 
+            {{-- form --}}
+        </div>
+      </div>
+    </div>
+    {{-- Modal --}}
      
     {{-- Call SweetAlert --}}
     @include('sweetalert::alert')
