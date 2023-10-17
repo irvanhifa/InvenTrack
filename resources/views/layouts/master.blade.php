@@ -12,7 +12,7 @@
   <body>
     
     {{-- Navbar --}}
-'    <nav class="navbar navbar-dark navbar-expand-sm color4">
+    <nav class="navbar navbar-dark navbar-expand-sm color4">
       <div class="container-fluid">
 
         <div class="justify-content-start">
@@ -59,7 +59,7 @@
         </div>
 
       </div>
-    </nav>'
+    </nav>
     {{-- End Navbar --}}
 
     <div>
