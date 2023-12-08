@@ -26,24 +26,25 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <div class="">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <?php //if (request()->session()->exists('login')) { ?>  
-                <li class="nav-item my-1">        
-                  <a class="btn c-btn btn-sm ms-2 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#modalTambahBarang">
-                    <i class="fa-solid fa-plus me-1"></i> Tambah
-                  </a>
-                </li>
-                <li class="nav-item my-1">
-                  <a class="btn c-btn btn-sm ms-2 d-flex justify-content-center align-items-center" type="button">
-                    <i class="fa-solid fa-table-list me-1"></i> Rekap
-                  </a>
-                </li>
-              <?php //} else { ?>
-                <li class="nav-item my-1">
-                  <a class="btn c-btn btn-sm ms-2 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#modalLoginAdmin">
-                    <i class="fa-solid fa-circle-user me-1"></i> Admin
-                  </a>
-                </li>
-              <?php //} ?>
+                @guest
+                    <li class="nav-item my-1">
+                        <a class="btn c-btn btn-sm ms-2 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#modalLoginAdmin">
+                        <i class="fa-solid fa-circle-user me-1"></i> Admin
+                        </a>
+                    </li>
+                @endguest
+                @auth
+                    <li class="nav-item my-1">        
+                        <a class="btn c-btn btn-sm ms-2 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#modalTambahBarang">
+                        <i class="fa-solid fa-plus me-1"></i> Tambah
+                        </a>
+                    </li>
+                    <li class="nav-item my-1">
+                        <a class="btn c-btn btn-sm ms-2 d-flex justify-content-center align-items-center" type="button">
+                        <i class="fa-solid fa-table-list me-1"></i> Rekap
+                        </a>
+                    </li>
+                @endauth
             </ul>
           </div>
 
@@ -61,7 +62,7 @@
       </div>
     </nav>
     {{-- End Navbar --}}
-
+ 
     <div>
         {{-- Start Content --}}
         @yield('content')
@@ -78,10 +79,11 @@
           </div>
           <div class="modal-body">
             {{-- form --}}
-            <form action="#"> 
+            <form action="/login" method="post"> 
+                @csrf
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control form-control-sm" id="password" placeholder="Masukkan Password">
+                <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Masukkan Password" required>
               </div>
           </div>
           <div class="modal-footer">
